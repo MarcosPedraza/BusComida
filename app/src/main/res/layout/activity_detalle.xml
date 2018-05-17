@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleActivity"
+    android:weightSum="2"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_detalle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/img_detalle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/comida"
+            android:scaleType="fitXY"
+            android:paddingBottom="25dp"
+            />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_carrito"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_carrito"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_nombre_detalle"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre platillo"/>
+
+
+        <TextView
+            android:id="@+id/tv_desc_detalle"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="8dp"
+            android:textSize="10sp"
+            android:layout_marginRight="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Long body text - Minantia non modo formaeque in meis acervo formaeque gravitate erat indigestaque habentia fixo mutatas aliud orbis retinebat qui non alta"/>
+
+
+        <TextView
+            android:id="@+id/tv_precio_detalle"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio: 45"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

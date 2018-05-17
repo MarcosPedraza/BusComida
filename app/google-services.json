@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1028022354331",
+    "firebase_url": "https://buscomida-2c9ed.firebaseio.com",
+    "project_id": "buscomida-2c9ed",
+    "storage_bucket": "buscomida-2c9ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028022354331:android:b20dc4900f4c065f",
+        "android_client_info": {
+          "package_name": "com.mareinc.marcospedraza.buscomida"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1028022354331-qntun3eatil56k1sa3tlo8smnajcg2gn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mareinc.marcospedraza.buscomida",
+            "certificate_hash": "631038820e05a8d07e47cd34a30e666ae624e0d2"
+          }
+        },
+        {
+          "client_id": "1028022354331-rr5f36ehsrvp3opusvckdafdag4n8uf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkXW0E6XTrxt0cFPHPcB0q8oW6i9Im8Hg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1028022354331-rr5f36ehsrvp3opusvckdafdag4n8uf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
