@@ -2,6 +2,7 @@ package com.mareinc.marcospedraza.buscomida;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     //widgets
     Button btn_log_in;
     Button btn_register;
-    EditText et_user;
+    TextInputEditText et_user;
     EditText et_password;
     ProgressBar pg_login;
 
