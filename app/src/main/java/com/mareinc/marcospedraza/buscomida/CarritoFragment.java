@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -41,6 +42,10 @@ public class CarritoFragment extends Fragment {
     FirebaseAuth mAuth;
 
     RecyclerView rvCarrito;
+    TextView tv_total;
+
+
+    double total =0;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -84,6 +89,7 @@ public class CarritoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_carrito, container, false);
 
         rvCarrito = view.findViewById(R.id.rv_carrito);
+        tv_total= view.findViewById(R.id.tv_total_pedido);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -107,6 +113,16 @@ public class CarritoFragment extends Fragment {
                 AdapterCarrito adapter = new AdapterCarrito(items,getContext());
                 rvCarrito.setAdapter(adapter);
                 rvCarrito.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+                for(int i = 1;i < items.size();i++)
+                {
+
+                    total =total + items.get(i).getSub_total();
+
+                }
+
+                tv_total.setText("Total: "+ total);
 
             }
 

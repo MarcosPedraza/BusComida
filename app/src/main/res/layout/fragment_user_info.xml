@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserInfoFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background_color">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile_pic"
@@ -119,6 +120,13 @@
             android:src="@drawable/ic_edit"
             />
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_scanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escaner Codigo"/>
 
 
 
