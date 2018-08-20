@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mareinc.marcospedraza.buscomida.adapters.AdapterCarrito;
 import com.mareinc.marcospedraza.buscomida.adapters.AdapterPlatillos;
+import com.mareinc.marcospedraza.buscomida.interfaces.deleteItemListener;
 import com.mareinc.marcospedraza.buscomida.models.ItemCarrito;
 
 import java.util.ArrayList;
@@ -110,7 +111,16 @@ public class CarritoFragment extends Fragment {
 
                 }
 
-                AdapterCarrito adapter = new AdapterCarrito(items,getContext());
+                AdapterCarrito adapter = new AdapterCarrito(items, getContext(), new deleteItemListener() {
+                    @Override
+                    public void deleteItem(String id_item, int position) {
+
+                        //interfas para borrar un item
+                        Log.d(TAG, "deleteItem: el objeto a borrar es: "+ id_item);
+
+
+                    }
+                });
                 rvCarrito.setAdapter(adapter);
                 rvCarrito.setLayoutManager(new LinearLayoutManager(getContext()));
 

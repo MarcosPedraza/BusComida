@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.mareinc.marcospedraza.buscomida.R;
+import com.mareinc.marcospedraza.buscomida.interfaces.deleteItemListener;
 import com.mareinc.marcospedraza.buscomida.models.ItemCarrito;
 
 import java.util.ArrayList;
@@ -25,16 +26,13 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
 
     ArrayList<ItemCarrito> items = new ArrayList<>();
     Context context;
-    private DatabaseReference myRef;
-    FirebaseAuth mAuth;
+    deleteItemListener listener;
 
-    public AdapterCarrito(ArrayList<ItemCarrito> items, Context context) {
+
+    public AdapterCarrito(ArrayList<ItemCarrito> items, Context context,deleteItemListener listener) {
         this.items = items;
         this.context = context;
-
-        this.myRef = FirebaseDatabase.getInstance().getReference()
-                .child("carrito")
-                .child(mAuth.getCurrentUser().getUid());
+        this.listener = listener;
     }
 
     @Override
@@ -58,7 +56,9 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                crearDialog(items.get(position).getId_item()).show();
+                crearDialog(items.get(position).getId_item(),position).show();
+
+
             }
         });
 
@@ -88,7 +88,7 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
 
 
 
-    private AlertDialog crearDialog(String id_item)
+    private AlertDialog crearDialog(final String id_item, final int item_position)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -98,9 +98,7 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
-
-
+                                listener.deleteItem(id_item,item_position);
                             }
                         })
                 .setNegativeButton("CANCELAR",

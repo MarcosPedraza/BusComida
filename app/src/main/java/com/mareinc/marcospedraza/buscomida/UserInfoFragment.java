@@ -52,7 +52,7 @@ public class UserInfoFragment extends Fragment {
 
 
     //var
-    boolean permissionCamera = false;
+    boolean permissionCamera;
 
     //widgets
     ImageView img_profile;
@@ -144,15 +144,17 @@ public class UserInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                Log.d(TAG, "onClick: la variable de permisos de camara es:" +permissionCamera);
                 RequestPermitions();
 
                 if(permissionCamera) {
+                    Log.d(TAG, "onClick: es true inicia la camara");
                     Intent i = new Intent(getContext(), QRActivity.class);
                     startActivity(i);
                 }
                 else
                 {
-                    crearDialog();
+                    crearDialog().show();
                 }
             }
         });
@@ -172,7 +174,7 @@ public class UserInfoFragment extends Fragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                RequestPermitions();
                             }
                         })
                 .setNegativeButton("CANCELAR",
@@ -199,7 +201,6 @@ public class UserInfoFragment extends Fragment {
             {
                 ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CAMERA},CAMERA_REQUEST);
             }
-
 
 
         }
