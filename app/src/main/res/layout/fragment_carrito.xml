@@ -11,7 +11,7 @@
         android:id="@+id/rv_carrito"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        tools:listitem="@layout/card_comida"
+        tools:listitem="@layout/row_pedido"
         >
 
     </android.support.v7.widget.RecyclerView>

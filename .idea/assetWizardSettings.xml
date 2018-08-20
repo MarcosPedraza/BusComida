@@ -34,7 +34,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="C:\Users\Marcos Pedraza\Pictures\buscomida_icon.png" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Descargas/icons8-error-128.png" />
                                       <entry key="foregroundLayerName" value="ic_launcher_buscomida" />
                                       <entry key="outputName" value="ic_buscomida" />
                                     </map>
@@ -42,6 +42,25 @@
                                 </PersistentState>
                               </value>
                             </entry>
+                            <entry key="launcherLegacy">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../recursos_app_comida/icons8-cerrar-ventana-80.png" />
+                                      <entry key="outputName" value="ic_delete" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>

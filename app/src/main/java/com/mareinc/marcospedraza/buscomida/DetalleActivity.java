@@ -137,7 +137,13 @@ public class DetalleActivity extends AppCompatActivity implements MyDialogCarrit
                 itemCarrito.setCantidad(Integer.valueOf(input));
                 itemCarrito.setSub_total(sub_total);
                 itemCarrito.setUrl_platillo_img(platillo_detalle.getImg_url());
-                carritoDataRef.child(mAuth.getUid()).push().setValue(itemCarrito);
+
+
+                String key = carritoDataRef.child(mAuth.getUid()).push().getKey();
+                itemCarrito.setId_item(key);
+
+                carritoDataRef.child(mAuth.getUid()).child(key).setValue(itemCarrito);
+                //1carritoDataRef.child(mAuth.getUid()).push().setValue(itemCarrito);
                 Log.d(TAG, "sendInput: agregado al carrito");
 
         }
