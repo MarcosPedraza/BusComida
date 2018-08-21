@@ -118,7 +118,7 @@ public class CarritoFragment extends Fragment {
                         //interfas para borrar un item
                         Log.d(TAG, "deleteItem: el objeto a borrar es: "+ id_item);
 
-
+                        mDatabase.child(id_item).removeValue();
                     }
                 });
                 rvCarrito.setAdapter(adapter);

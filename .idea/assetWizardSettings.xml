@@ -49,8 +49,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../recursos_app_comida/icons8-cerrar-ventana-80.png" />
-                                      <entry key="outputName" value="ic_delete" />
+                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../recursos_app_comida/icons8-más-2-matemáticas-100.png" />
+                                      <entry key="outputName" value="ic_add_saldo" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mareinc.marcospedraza.buscomida.models.Platillo;
+import com.mareinc.marcospedraza.buscomida.models.SaldoUsuario;
 import com.mareinc.marcospedraza.buscomida.models.User;
 
 
@@ -59,14 +60,17 @@ public class UserInfoFragment extends Fragment {
     TextView tv_nom_user;
     TextView tv_phone_user;
     TextView tv_email_user;
-    Button btnScanner;
+    TextView tv_saldo;
+    ImageView btnScanner;
 
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
+    private DatabaseReference saldoRef;
     FirebaseAuth mAuth;
 
     User user_info;
+    SaldoUsuario saldo_usuario;
 
 
     public UserInfoFragment() {
@@ -110,10 +114,12 @@ public class UserInfoFragment extends Fragment {
         tv_nom_user = view.findViewById(R.id.tv_user_name);
         tv_phone_user = view.findViewById(R.id.tv_telefono);
         tv_email_user = view.findViewById(R.id.tv_email_user);
+        tv_saldo = view.findViewById(R.id.tv_saldo);
         btnScanner = view.findViewById(R.id.btn_scanner);
 
         mAuth = FirebaseAuth.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference("usuarios").child(mAuth.getUid());
+        saldoRef = FirebaseDatabase.getInstance().getReference().child("saldo_usuarios").child(mAuth.getUid());
 
 
         if(ContextCompat.checkSelfPermission(getContext(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
@@ -132,6 +138,20 @@ public class UserInfoFragment extends Fragment {
                 user_info = dataSnapshot.getValue(User.class);
                 Log.d(TAG, "onDataChange: usuario: " + dataSnapshot.getValue(User.class).getUser_name());
                 setUserInfo(user_info);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        saldoRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                saldo_usuario = dataSnapshot.getValue(SaldoUsuario.class);
+                Log.d(TAG, "onDataChange: valor del saldo: "+ saldo_usuario.getSaldo());
+                setSaldo(saldo_usuario);
             }
 
             @Override
@@ -230,6 +250,7 @@ public class UserInfoFragment extends Fragment {
 
     private void setUserInfo(User user) {
 
+
         Glide.with(getContext())
                 .load(user.getProfile_url())
                 .into(img_profile);
@@ -238,6 +259,11 @@ public class UserInfoFragment extends Fragment {
         tv_phone_user.setText(user.getTel());
         tv_email_user.setText(user.getEmail());
 
+    }
+
+    private void setSaldo(SaldoUsuario saldo)
+    {
+        tv_saldo.setText("Saldo: " + saldo.getSaldo());
     }
 
 }

@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.mareinc.marcospedraza.buscomida.models.SaldoUsuario;
 import com.mareinc.marcospedraza.buscomida.models.User;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -43,6 +44,7 @@ public class RegistoActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
+    private DatabaseReference myRefSaldo;
     StorageReference mStorageRef;
 
     private static final int PICK_IMAGE_REQ = 8;
@@ -77,6 +79,7 @@ public class RegistoActivity extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference();
+        myRefSaldo = FirebaseDatabase.getInstance().getReference().child("saldo_usuarios");
         mAuth = FirebaseAuth.getInstance();
 
         pic_select.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +245,9 @@ public class RegistoActivity extends AppCompatActivity {
                 {
                     Log.d(TAG, "onComplete: usuario registrado con exito");
                     User user = mUser;
+                    SaldoUsuario saldo_new = new SaldoUsuario(0.0,true);
                     myRef.child("usuarios").child(mAuth.getCurrentUser().getUid()).setValue(user);
+                    myRefSaldo.child(mAuth.getCurrentUser().getUid()).setValue(saldo_new);
 
                     Toast.makeText(getApplicationContext(),"Usuario Creado",Toast.LENGTH_LONG).show();
                     goToLogIn();

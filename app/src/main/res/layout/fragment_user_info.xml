@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UserInfoFragment"
     android:orientation="vertical"
     android:background="@color/background_color">
@@ -30,103 +31,130 @@
         android:layout_marginBottom="15dp"
         />
 
-    <LinearLayout
-        android:weightSum="10"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="5dp"
+        >
 
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_person"
-            />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_user_name"
-            android:layout_weight="8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Nombre de Usuario"/>
+            <LinearLayout
+                android:weightSum="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="8dp">
 
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            />
-    </LinearLayout>
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_person" />
 
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_weight="8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Nombre de Usuario" />
 
-    <LinearLayout
-        android:weightSum="10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="8dp">
-
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_phone"
-            />
-
-        <TextView
-            android:id="@+id/tv_telefono"
-            android:layout_weight="8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Telefono: 7711451578"/>
-
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:weightSum="10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="8dp">
-
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_email"
-            />
-
-        <TextView
-            android:id="@+id/tv_email_user"
-            android:layout_weight="8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Email: vladiwar@gmail.com"/>
-
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            />
-    </LinearLayout>
+            </LinearLayout>
 
 
-    <Button
-        android:id="@+id/btn_scanner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Escaner Codigo"/>
+            <LinearLayout
+                android:weightSum="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:id="@+id/tv_telefono"
+                    android:layout_weight="8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Telefono: 7711451578" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_email" />
+
+                <TextView
+                    android:id="@+id/tv_email_user"
+                    android:layout_weight="8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Email: vladiwar@gmail.com" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_saldo_tarjeta" />
+
+                <TextView
+                    android:id="@+id/tv_saldo"
+                    android:layout_weight="8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="15sp"
+                    android:text="Saldo: " />
+
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_add_saldo"
+                    android:id="@+id/btn_scanner"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
 
 
 

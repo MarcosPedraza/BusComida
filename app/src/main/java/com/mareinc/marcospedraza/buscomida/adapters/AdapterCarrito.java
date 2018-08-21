@@ -106,7 +106,6 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-
                             }
                         })
                 .setIcon(R.mipmap.ic_question);
